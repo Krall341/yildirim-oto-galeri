@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>YILDIRIM OTO GALERİ</title>
+
 <style>
 *{box-sizing:border-box}
 body{margin:0;background:#080808;color:#fff;font-family:Arial,sans-serif}
@@ -116,6 +117,7 @@ footer{text-align:center;color:#666;padding:25px;font-size:12px}
 </div>
 </div>
 
+
 <div class="card">
 <h2>💰 İlan Fiyat Filtresi</h2>
 
@@ -134,25 +136,44 @@ footer{text-align:center;color:#666;padding:25px;font-size:12px}
 </div>
 
 <div class="buttons">
-<button class="gold" onclick="searchSite('sahibinden','normal')">Sahibinden'de Ara</button>
-<button class="gold" onclick="searchSite('arabam','normal')">Arabam.com'da Ara</button>
-<button class="dark" onclick="searchSite('google','normal')">Google'da Ara</button>
+
+<button class="gold" onclick="searchSite('sahibinden')">
+Sahibinden'de Ara
+</button>
+
+<button class="gold" onclick="searchSite('arabam')">
+Arabam.com'da Ara
+</button>
+
+<button class="dark" onclick="searchSite('google')">
+Google'da Ara
+</button>
+
 </div>
 
 <div class="buttons">
-<button class="green" onclick="searchSite('sahibinden','low')">En Düşük Fiyatlı Ara</button>
-<button class="green" onclick="searchSite('sahibinden','high')">En Yüksek Fiyatlı Ara</button>
+
+<button class="green" onclick="searchGoogleOrder('low')">
+En Düşük Fiyatlı Ara
+</button>
+
+<button class="green" onclick="searchGoogleOrder('high')">
+En Yüksek Fiyatlı Ara
+</button>
+
 </div>
 
 <p class="note">
-Not: Aramalar Google üzerinden yapılır. Fiyat/yıl/km aralıkları arama sorgusuna eklenir. 
-“En düşük” ve “en yüksek” seçenekleri Google sonuçlarını fiyat sırasına zorlayamaz; sonuçların sıralaması Google'a aittir.
+Sahibinden ve Arabam butonları doğrudan ilgili internet sitesini açar.
+Google araması girilen araç kriterlerini kullanır. Fiyat sıralaması Google tarafından belirlenir.
 </p>
 
 </div>
 
+
 <div class="card">
 <h2>🔧 Kaporta / Parça Durumu</h2>
+
 <div id="parts" class="grid"></div>
 
 <div class="buttons">
@@ -160,6 +181,7 @@ Not: Aramalar Google üzerinden yapılır. Fiyat/yıl/km aralıkları arama sorg
 <button class="dark" onclick="allCheck()">Tümünü Kontrol Edilecek Yap</button>
 </div>
 </div>
+
 
 <div class="card">
 <h2>📋 Ekspertiz ve Hasar Bilgileri</h2>
@@ -208,7 +230,9 @@ Not: Aramalar Google üzerinden yapılır. Fiyat/yıl/km aralıkları arama sorg
 
 <label>Ekspertiz Notları</label>
 <textarea id="expertise" placeholder="Ekspertiz bilgilerini yaz..."></textarea>
+
 </div>
+
 
 <div class="card">
 <h2>🧾 Araç Masrafları</h2>
@@ -252,10 +276,12 @@ Toplam Maliyet: <span id="totalCost">0 TL</span>
 </div>
 </div>
 
+
 <div class="card">
 <h2>📝 Genel Notlar</h2>
 <textarea id="notes" placeholder="Araç hakkında kendi notlarını yaz..."></textarea>
 </div>
+
 
 <div class="card">
 <h2>💾 Araç Kaydı</h2>
@@ -268,6 +294,7 @@ Toplam Maliyet: <span id="totalCost">0 TL</span>
 <p class="note">Kayıtlar bu cihazın tarayıcısında saklanır.</p>
 </div>
 
+
 <div class="card">
 <h2>📁 Kayıtlı Araçlar</h2>
 <div id="vehicleList"></div>
@@ -276,6 +303,7 @@ Toplam Maliyet: <span id="totalCost">0 TL</span>
 </div>
 
 <footer>⚡ YILDIRIM OTO GALERİ</footer>
+
 
 <script>
 
@@ -297,54 +325,86 @@ const partNames=[
 
 let editId=null;
 
+
+/* PARÇA ALANLARI */
+
 function createParts(){
 
 document.getElementById("parts").innerHTML=
+
 partNames.map((name,i)=>`
 
 <div class="part">
+
 <strong>${name}</strong>
+
 <select id="part_${i}">
+
 <option>Orijinal</option>
 <option>Boyalı</option>
 <option>Lokal Boyalı</option>
 <option>Değişen</option>
 <option>İşlemli</option>
 <option>Kontrol Edilecek</option>
+
 </select>
+
 </div>
 
 `).join("");
 
 }
 
+
+/* TÜMÜ ORİJİNAL */
+
 function allOriginal(){
 
 partNames.forEach((x,i)=>{
+
 document.getElementById("part_"+i).value="Orijinal";
+
 });
 
 }
+
+
+/* TÜMÜ KONTROL */
 
 function allCheck(){
 
 partNames.forEach((x,i)=>{
+
 document.getElementById("part_"+i).value="Kontrol Edilecek";
+
 });
 
 }
 
+
+/* DEĞER OKUMA */
+
 function val(id){
 
-return document.getElementById(id).value.trim();
+const el=document.getElementById(id);
+
+return el ? el.value.trim() : "";
 
 }
+
+
+/* SAYI OKUMA */
 
 function num(id){
 
-return Number(document.getElementById(id).value)||0;
+const el=document.getElementById(id);
+
+return el ? Number(el.value)||0 : 0;
 
 }
+
+
+/* TOPLAM MALİYET */
 
 function calculate(){
 
@@ -363,47 +423,131 @@ return total;
 
 }
 
+
+/* GOOGLE ARAMA SORGUSU */
+
 function makeQuery(){
 
 let q=[];
 
-if(val("brand"))q.push(val("brand"));
-if(val("model"))q.push(val("model"));
+if(val("brand"))
+q.push(val("brand"));
 
-if(val("minYear")&&val("maxYear")){
-q.push(val("minYear")+"-"+val("maxYear")+" model");
-}else if(val("minYear")){
-q.push(val("minYear")+" model ve üzeri");
-}else if(val("maxYear")){
-q.push(val("maxYear")+" model ve altı");
-}
+if(val("model"))
+q.push(val("model"));
 
-if(val("minKm")&&val("maxKm")){
-q.push(val("minKm")+"-"+val("maxKm")+" km");
-}else if(val("minKm")){
-q.push(val("minKm")+" km ve üzeri");
-}else if(val("maxKm")){
-q.push(val("maxKm")+" km ve altı");
-}
+if(val("minYear") && val("maxYear"))
+q.push(val("minYear")+".."+val("maxYear"));
 
-if(val("fuel"))q.push(val("fuel"));
-if(val("gear"))q.push(val("gear"));
-if(val("trim"))q.push(val("trim"));
-if(val("city"))q.push(val("city"));
+else if(val("minYear"))
+q.push(val("minYear")+"..");
 
-if(val("minPrice")&&val("maxPrice")){
-q.push(val("minPrice")+"-"+val("maxPrice")+" TL");
-}else if(val("minPrice")){
-q.push(val("minPrice")+" TL ve üzeri");
-}else if(val("maxPrice")){
-q.push(val("maxPrice")+" TL ve altı");
-}
+else if(val("maxYear"))
+q.push(".."+val("maxYear"));
+
+if(val("minKm") && val("maxKm"))
+q.push(val("minKm")+".."+val("maxKm"));
+
+else if(val("minKm"))
+q.push(val("minKm")+"..");
+
+else if(val("maxKm"))
+q.push(".."+val("maxKm"));
+
+if(val("fuel"))
+q.push(val("fuel"));
+
+if(val("gear"))
+q.push(val("gear"));
+
+if(val("trim"))
+q.push(val("trim"));
+
+if(val("city"))
+q.push(val("city"));
+
+if(val("minPrice") && val("maxPrice"))
+q.push(val("minPrice")+".."+val("maxPrice"));
+
+else if(val("minPrice"))
+q.push(val("minPrice")+"..");
+
+else if(val("maxPrice"))
+q.push(".."+val("maxPrice"));
 
 return q.join(" ");
 
 }
 
-function searchSite(site,order){
+
+/* DOĞRUDAN SİTE AÇMA */
+
+function searchSite(site){
+
+if(!val("brand") && !val("model")){
+
+alert("Önce en az marka veya model gir.");
+
+return;
+
+}
+
+
+/* SAHİBİNDEN */
+
+if(site==="sahibinden"){
+
+window.location.assign(
+"https://www.sahibinden.com/vasita"
+);
+
+return;
+
+}
+
+
+/* ARABAM */
+
+if(site==="arabam"){
+
+window.location.assign(
+"https://www.arabam.com/ikinci-el/otomobil"
+);
+
+return;
+
+}
+
+
+/* GOOGLE */
+
+if(site==="google"){
+
+const query=makeQuery();
+
+if(!query){
+
+alert("Önce araç bilgilerini gir.");
+
+return;
+
+}
+
+window.location.assign(
+"https://www.google.com/search?q="+
+encodeURIComponent(query+" araç ilanı")
+);
+
+return;
+
+}
+
+}
+
+
+/* FİYAT YÖNLÜ GOOGLE ARAMASI */
+
+function searchGoogleOrder(order){
 
 const query=makeQuery();
 
@@ -415,56 +559,39 @@ return;
 
 }
 
-let searchText=query+" araç ilanı";
+let text=query;
 
 if(order==="low"){
-searchText+=" en ucuz en düşük fiyat";
+
+text+=" en ucuz fiyat";
+
 }
 
 if(order==="high"){
-searchText+=" en pahalı en yüksek fiyat";
+
+text+=" en yüksek fiyat";
+
 }
 
-let url="";
-
-if(site==="sahibinden"){
-
-url=
+window.location.assign(
 "https://www.google.com/search?q="+
-encodeURIComponent(
-"site:sahibinden.com/ilan/vasita "+searchText
+encodeURIComponent(text+" araç ilanı")
 );
 
 }
 
-if(site==="arabam"){
 
-url=
-"https://www.google.com/search?q="+
-encodeURIComponent(
-"site:arabam.com "+searchText
-);
-
-}
-
-if(site==="google"){
-
-url=
-"https://www.google.com/search?q="+
-encodeURIComponent(searchText);
-
-}
-
-window.open(url,"_blank");
-
-}
+/* FORM VERİLERİ */
 
 function getFormData(){
 
 const parts={};
 
 partNames.forEach((name,i)=>{
-parts[name]=document.getElementById("part_"+i).value;
+
+parts[name]=
+document.getElementById("part_"+i).value;
+
 });
 
 return{
@@ -513,6 +640,9 @@ date:new Date().toLocaleString("tr-TR")
 
 }
 
+
+/* KAYDET */
+
 function saveVehicle(){
 
 if(!val("brand")&&!val("model")){
@@ -526,13 +656,20 @@ return;
 const data=getFormData();
 
 let list=
-JSON.parse(localStorage.getItem("yildirimVehicles")||"[]");
+JSON.parse(
+localStorage.getItem("yildirimVehicles")||"[]"
+);
 
 if(editId){
 
-const index=list.findIndex(x=>x.id===editId);
+const index=
+list.findIndex(x=>x.id===editId);
 
-if(index!==-1)list[index]=data;
+if(index!==-1){
+
+list[index]=data;
+
+}
 
 editId=null;
 
@@ -553,22 +690,31 @@ alert("Araç kaydedildi.");
 
 }
 
+
+/* KAYITLI ARAÇLAR */
+
 function renderVehicles(){
 
-const box=document.getElementById("vehicleList");
+const box=
+document.getElementById("vehicleList");
 
 const list=
-JSON.parse(localStorage.getItem("yildirimVehicles")||"[]");
+JSON.parse(
+localStorage.getItem("yildirimVehicles")||"[]"
+);
 
 if(!list.length){
 
-box.innerHTML='<div class="empty">Henüz kayıtlı araç yok.</div>';
+box.innerHTML=
+'<div class="empty">Henüz kayıtlı araç yok.</div>';
 
 return;
 
 }
 
-box.innerHTML=list.map(v=>`
+box.innerHTML=
+
+list.map(v=>`
 
 <div class="vehicle">
 
@@ -579,26 +725,52 @@ ${escapeHTML(v.brand)} ${escapeHTML(v.model)}
 <div class="info">
 
 ${v.minYear||v.maxYear?
-"Yıl: "+escapeHTML(v.minYear||"")+
-" - "+escapeHTML(v.maxYear||"")+"<br>":""}
+"Yıl: "+
+escapeHTML(v.minYear||"")+
+" - "+
+escapeHTML(v.maxYear||"")+
+"<br>":""
+}
 
 ${v.minKm||v.maxKm?
-"KM: "+escapeHTML(v.minKm||"0")+
-" - "+escapeHTML(v.maxKm||"")+"<br>":""}
+"KM: "+
+escapeHTML(v.minKm||"0")+
+" - "+
+escapeHTML(v.maxKm||"0")+
+"<br>":""
+}
 
-${v.fuel?"Yakıt: "+escapeHTML(v.fuel)+"<br>":""}
+${v.fuel?
+"Yakıt: "+
+escapeHTML(v.fuel)+
+"<br>":""
+}
 
-${v.gear?"Vites: "+escapeHTML(v.gear)+"<br>":""}
+${v.gear?
+"Vites: "+
+escapeHTML(v.gear)+
+"<br>":""
+}
 
-${v.trim?"Paket: "+escapeHTML(v.trim)+"<br>":""}
+${v.trim?
+"Paket: "+
+escapeHTML(v.trim)+
+"<br>":""
+}
 
-${v.city?"Şehir: "+escapeHTML(v.city)+"<br>":""}
+${v.city?
+"Şehir: "+
+escapeHTML(v.city)+
+"<br>":""
+}
 
 ${v.minPrice||v.maxPrice?
 "İlan Fiyatı: "+
 escapeHTML(v.minPrice||"0")+
 " - "+
-escapeHTML(v.maxPrice||"0")+" TL<br>":""}
+escapeHTML(v.maxPrice||"0")+
+" TL<br>":""
+}
 
 <strong style="color:#d4af37">
 Toplam Maliyet:
@@ -608,25 +780,35 @@ ${Number(v.totalCost||0).toLocaleString("tr-TR")} TL
 </div>
 
 <div>
+
 ${Object.entries(v.parts||{}).map(
 ([name,status])=>
+
 `<span class="badge">
 ${escapeHTML(name)}: ${escapeHTML(status)}
 </span>`
+
 ).join("")}
+
 </div>
 
 <div class="buttons">
 
-<button class="gold" onclick="editVehicle(${v.id})">
+<button
+class="gold"
+onclick="editVehicle(${v.id})">
 Düzenle
 </button>
 
-<button class="dark" onclick="searchSaved(${v.id})">
+<button
+class="dark"
+onclick="searchSaved(${v.id})">
 İlan Ara
 </button>
 
-<button class="red" onclick="deleteVehicle(${v.id})">
+<button
+class="red"
+onclick="deleteVehicle(${v.id})">
 Sil
 </button>
 
@@ -638,10 +820,15 @@ Sil
 
 }
 
+
+/* DÜZENLE */
+
 function editVehicle(id){
 
 const list=
-JSON.parse(localStorage.getItem("yildirimVehicles")||"[]");
+JSON.parse(
+localStorage.getItem("yildirimVehicles")||"[]"
+);
 
 const v=list.find(x=>x.id===id);
 
@@ -682,14 +869,16 @@ fields.forEach(id=>{
 
 const el=document.getElementById(id);
 
-if(el)el.value=v[id]??"";
+if(el)
+el.value=v[id]??"";
 
 });
 
 partNames.forEach((name,i)=>{
 
 document.getElementById("part_"+i).value=
-(v.parts&&v.parts[name])||"Orijinal";
+(v.parts&&v.parts[name])||
+"Orijinal";
 
 });
 
@@ -702,10 +891,15 @@ behavior:"smooth"
 
 }
 
+
+/* KAYITLI ARAÇ İLAN ARA */
+
 function searchSaved(id){
 
 const list=
-JSON.parse(localStorage.getItem("yildirimVehicles")||"[]");
+JSON.parse(
+localStorage.getItem("yildirimVehicles")||"[]"
+);
 
 const v=list.find(x=>x.id===id);
 
@@ -713,38 +907,75 @@ if(!v)return;
 
 let q=[];
 
-if(v.brand)q.push(v.brand);
-if(v.model)q.push(v.model);
+if(v.brand)
+q.push(v.brand);
 
-if(v.minYear||v.maxYear)
-q.push((v.minYear||"")+"-"+(v.maxYear||"")+" model");
+if(v.model)
+q.push(v.model);
 
-if(v.minKm||v.maxKm)
-q.push((v.minKm||"")+"-"+(v.maxKm||"")+" km");
+if(v.minYear && v.maxYear)
+q.push(v.minYear+".."+v.maxYear);
 
-if(v.fuel)q.push(v.fuel);
-if(v.gear)q.push(v.gear);
-if(v.trim)q.push(v.trim);
-if(v.city)q.push(v.city);
+else if(v.minYear)
+q.push(v.minYear+"..");
 
-if(v.minPrice||v.maxPrice)
-q.push((v.minPrice||"")+"-"+(v.maxPrice||"")+" TL");
+else if(v.maxYear)
+q.push(".."+v.maxYear);
 
-window.open(
+if(v.minKm && v.maxKm)
+q.push(v.minKm+".."+v.maxKm);
+
+else if(v.minKm)
+q.push(v.minKm+"..");
+
+else if(v.maxKm)
+q.push(".."+v.maxKm);
+
+if(v.fuel)
+q.push(v.fuel);
+
+if(v.gear)
+q.push(v.gear);
+
+if(v.trim)
+q.push(v.trim);
+
+if(v.city)
+q.push(v.city);
+
+if(v.minPrice && v.maxPrice)
+q.push(v.minPrice+".."+v.maxPrice);
+
+else if(v.minPrice)
+q.push(v.minPrice+"..");
+
+else if(v.maxPrice)
+q.push(".."+v.maxPrice);
+
+window.location.assign(
 "https://www.google.com/search?q="+
-encodeURIComponent(q.join(" ")+" araç ilanları"),
-"_blank"
+encodeURIComponent(
+q.join(" ")+" araç ilanları"
+)
 );
 
 }
 
+
+/* SİL */
+
 function deleteVehicle(id){
 
-if(!confirm("Bu araç kaydını silmek istediğine emin misin?"))
+if(!confirm(
+"Bu araç kaydını silmek istediğine emin misin?"
+))
+
 return;
 
 let list=
-JSON.parse(localStorage.getItem("yildirimVehicles")||"[]");
+JSON.parse(
+localStorage.getItem("yildirimVehicles")||"[]"
+);
 
 list=list.filter(x=>x.id!==id);
 
@@ -757,14 +988,19 @@ renderVehicles();
 
 }
 
+
+/* FORM TEMİZLE */
+
 function clearForm(){
 
 editId=null;
 
-document.querySelectorAll("input,textarea")
+document
+.querySelectorAll("input,textarea")
 .forEach(el=>el.value="");
 
-document.querySelectorAll("select")
+document
+.querySelectorAll("select")
 .forEach(el=>el.selectedIndex=0);
 
 allOriginal();
@@ -773,9 +1009,13 @@ calculate();
 
 }
 
+
+/* GÜVENLİ HTML */
+
 function escapeHTML(value){
 
 return String(value??"")
+
 .replace(/&/g,"&amp;")
 .replace(/</g,"&lt;")
 .replace(/>/g,"&gt;")
@@ -783,6 +1023,9 @@ return String(value??"")
 .replace(/'/g,"&#039;");
 
 }
+
+
+/* BAŞLAT */
 
 createParts();
 renderVehicles();
