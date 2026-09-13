@@ -2,571 +2,288 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>YILDIRIM OTO GALERİ - Araç Değerlendirme</title>
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>YILDIRIM OTO GALERİ</title>
 
 <style>
 *{box-sizing:border-box}
-
-:root{
---gold:#d4af37;
---gold2:#f1d36b;
---bg:#070707;
---card:#111;
---card2:#0c0c0c;
---border:#292929;
---muted:#999;
---danger:#d9534f;
---green:#39b86b;
-}
-
 body{
 margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:var(--bg);
-color:#eee;
-}
-
-button,input,select,textarea{
-font-family:inherit;
-}
-
-.header{
-height:76px;
-background:#0c0c0c;
-border-bottom:1px solid var(--border);
-display:flex;
-align-items:center;
-justify-content:space-between;
-padding:0 25px;
-position:sticky;
-top:0;
-z-index:50;
-}
-
-.logo{
-font-size:21px;
-font-weight:bold;
-color:var(--gold);
-}
-
-.logo span{
-display:block;
-font-size:10px;
-letter-spacing:2px;
+font-family:Arial,sans-serif;
+background:#080808;
 color:#fff;
-margin-top:4px;
 }
-
-.header-right{
-font-size:12px;
-color:#aaa;
-}
-
-.container{
-max-width:1400px;
-margin:auto;
-padding:22px;
-}
-
-.hero{
-background:linear-gradient(135deg,#171717,#0b0b0b);
-border:1px solid var(--border);
-border-radius:16px;
-padding:25px;
-margin-bottom:20px;
-}
-
-.hero h1{
-margin:0 0 8px;
-font-size:27px;
-}
-
-.hero p{
-margin:0;
-color:#999;
-line-height:1.5;
-}
-
-.panel{
-background:var(--card);
-border:1px solid var(--border);
-border-radius:15px;
+header{
+background:#111;
+border-bottom:2px solid #d4af37;
 padding:20px;
-margin-bottom:20px;
+text-align:center;
 }
-
-.panel-title{
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:10px;
+.logo{
+font-size:26px;
+font-weight:bold;
+color:#d4af37;
+letter-spacing:2px;
+}
+.subtitle{
+color:#aaa;
+margin-top:6px;
+font-size:14px;
+}
+.container{
+max-width:1100px;
+margin:auto;
+padding:18px;
+}
+.card{
+background:#121212;
+border:1px solid #333;
+border-radius:14px;
+padding:18px;
 margin-bottom:18px;
 }
-
-.panel-title h2{
-margin:0;
-font-size:18px;
+h2{
+color:#d4af37;
+font-size:19px;
+margin-top:0;
+border-bottom:1px solid #333;
+padding-bottom:10px;
 }
-
-.badge{
-font-size:10px;
-color:var(--gold);
-background:#1c190e;
-border:1px solid #514617;
-padding:6px 10px;
-border-radius:20px;
-white-space:nowrap;
-}
-
 .grid{
 display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:14px;
+grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+gap:12px;
 }
-
-.field label{
+label{
 display:block;
-font-size:12px;
-color:#aaa;
-margin-bottom:7px;
+font-size:13px;
+color:#bbb;
+margin-bottom:5px;
 }
-
 input,select,textarea{
 width:100%;
-background:#090909;
-border:1px solid #333;
-color:#fff;
-border-radius:9px;
 padding:12px;
-outline:none;
+border-radius:8px;
+border:1px solid #444;
+background:#1d1d1d;
+color:#fff;
+font-size:14px;
 }
-
-input:focus,
-select:focus,
-textarea:focus{
-border-color:var(--gold);
-}
-
 textarea{
-min-height:100px;
+min-height:90px;
 resize:vertical;
 }
-
-.actions{
-display:flex;
-flex-wrap:wrap;
-gap:10px;
-margin-top:18px;
-}
-
 button{
 border:0;
-border-radius:9px;
-padding:12px 17px;
+border-radius:8px;
+padding:12px 15px;
 font-weight:bold;
 cursor:pointer;
-transition:.15s;
+margin:4px;
 }
-
-button:hover{
-transform:translateY(-1px);
+.gold{
+background:#d4af37;
+color:#000;
 }
-
-.primary{
-background:var(--gold);
-color:#080808;
-}
-
-.secondary{
-background:#222;
-border:1px solid #363636;
+.dark{
+background:#292929;
 color:#fff;
+border:1px solid #555;
 }
-
-.green{
-background:#155b35;
-color:#fff;
-border:1px solid #267b4d;
-}
-
 .red{
-background:#4a1818;
+background:#8d2020;
 color:#fff;
-border:1px solid #7a2b2b;
 }
-
-.parts{
-display:grid;
-grid-template-columns:repeat(4,1fr);
-gap:10px;
+.green{
+background:#176b3a;
+color:#fff;
 }
-
+.buttons{
+display:flex;
+flex-wrap:wrap;
+gap:5px;
+margin-top:12px;
+}
 .part{
-background:#0b0b0b;
-border:1px solid #292929;
-border-radius:10px;
-padding:12px;
+background:#1b1b1b;
+border:1px solid #333;
+padding:10px;
+border-radius:9px;
 }
-
-.part-title{
-font-weight:bold;
-font-size:13px;
-margin-bottom:9px;
+.part strong{
+display:block;
+margin-bottom:7px;
+color:#ddd;
 }
-
 .part select{
 padding:9px;
-font-size:12px;
 }
-
-.status{
-display:inline-block;
-margin-top:7px;
-font-size:11px;
-color:#777;
-}
-
-.cost-grid{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:14px;
-}
-
-.cost-box{
-background:#0a0a0a;
-border:1px solid #292929;
-border-radius:12px;
-padding:17px;
-}
-
-.cost-box label{
-display:block;
-font-size:12px;
-color:#aaa;
-margin-bottom:7px;
-}
-
-.total-box{
+.total{
+font-size:22px;
+font-weight:bold;
+color:#d4af37;
 margin-top:15px;
-padding:18px;
-border-radius:12px;
-background:#17140b;
-border:1px solid #514617;
-display:flex;
-align-items:center;
-justify-content:space-between;
-gap:10px;
 }
-
-.total-box strong{
-font-size:25px;
-color:var(--gold2);
-}
-
-.search-buttons{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:12px;
-}
-
-.search-btn{
-padding:17px;
-font-size:14px;
-background:#151515;
-border:1px solid #333;
-color:#fff;
-}
-
-.search-btn:hover{
-border-color:var(--gold);
-color:var(--gold2);
-}
-
-.saved-list{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:12px;
-}
-
-.vehicle-card{
-background:#0b0b0b;
-border:1px solid #292929;
+.vehicle{
+background:#191919;
+border:1px solid #383838;
 border-radius:12px;
 padding:15px;
-}
-
-.vehicle-card h3{
-margin:0 0 8px;
-font-size:16px;
-}
-
-.vehicle-card p{
-margin:5px 0;
-font-size:12px;
-color:#aaa;
-}
-
-.vehicle-card .price{
-font-size:19px;
-font-weight:bold;
-color:var(--gold2);
-margin:12px 0;
-}
-
-.card-actions{
-display:flex;
-gap:7px;
 margin-top:12px;
-flex-wrap:wrap;
 }
-
-.card-actions button{
-padding:8px 10px;
-font-size:11px;
+.vehicle-title{
+font-size:18px;
+font-weight:bold;
+color:#d4af37;
 }
-
 .info{
-font-size:12px;
-line-height:1.6;
-color:#888;
-margin-top:13px;
+color:#bbb;
+font-size:13px;
+line-height:1.7;
+margin:8px 0;
 }
-
-.footer{
+.badge{
+display:inline-block;
+background:#292929;
+border:1px solid #444;
+padding:4px 7px;
+border-radius:5px;
+font-size:11px;
+margin:2px;
+}
+.empty{
+color:#777;
+text-align:center;
+padding:20px;
+}
+footer{
 text-align:center;
 color:#666;
-font-size:11px;
 padding:25px;
-}
-
-@media(max-width:1050px){
-.grid{grid-template-columns:repeat(2,1fr)}
-.parts{grid-template-columns:repeat(2,1fr)}
-.cost-grid{grid-template-columns:repeat(2,1fr)}
-.saved-list{grid-template-columns:repeat(2,1fr)}
-}
-
-@media(max-width:650px){
-.header{
-padding:0 14px;
-height:68px;
-}
-
-.logo{
-font-size:17px;
-}
-
-.header-right{
-display:none;
-}
-
-.container{
-padding:12px;
-}
-
-.hero{
-padding:19px;
-}
-
-.hero h1{
-font-size:22px;
-}
-
-.grid,
-.parts,
-.cost-grid,
-.saved-list,
-.search-buttons{
-grid-template-columns:1fr;
-}
-
-.panel{
-padding:15px;
-}
-
-.total-box{
-display:block;
-}
-
-.total-box strong{
-display:block;
-margin-top:8px;
-}
+font-size:12px;
 }
 </style>
 </head>
 
 <body>
 
-<header class="header">
-
-<div class="logo">
-⚡ YILDIRIM OTO GALERİ
-<span>ARAÇ DEĞERLENDİRME SİSTEMİ</span>
-</div>
-
-<div class="header-right">
-ÖZEL GALERİ PANELİ
-</div>
-
+<header>
+<div class="logo">⚡ YILDIRIM OTO GALERİ</div>
+<div class="subtitle">ARAÇ DEĞERLENDİRME & İLAN ARAMA SİSTEMİ</div>
 </header>
 
-<main class="container">
-
-<section class="hero">
-<h1>🚘 Araç Değerlendirme & İlan Arama</h1>
-<p>
-Aracı değerlendir, boya ve değişen bilgilerini kaydet,
-masrafları hesapla ve aynı aracı ilan sitelerinde hızlıca ara.
-</p>
-</section>
-
+<div class="container">
 
 <!-- ARAÇ BİLGİLERİ -->
-
-<section class="panel">
-
-<div class="panel-title">
-<h2>🚗 Araç Bilgileri</h2>
-<span class="badge">ARAÇ KAYDI</span>
-</div>
+<div class="card">
+<h2>🚘 Araç Bilgileri</h2>
 
 <div class="grid">
 
-<div class="field">
+<div>
 <label>Marka</label>
-<input id="brand" placeholder="Örn: Mercedes">
+<input id="brand" placeholder="Örn: Opel">
 </div>
 
-<div class="field">
+<div>
 <label>Model</label>
-<input id="model" placeholder="Örn: S 200">
+<input id="model" placeholder="Örn: Mokka X">
 </div>
 
-<div class="field">
+<div>
 <label>Yıl</label>
-<input id="year" type="number" placeholder="2021">
+<input id="year" type="number" placeholder="2020">
 </div>
 
-<div class="field">
+<div>
 <label>Kilometre</label>
-<input id="km" type="number" placeholder="70000">
+<input id="km" type="number" placeholder="125000">
 </div>
 
-<div class="field">
+<div>
 <label>Yakıt</label>
 <select id="fuel">
+<option value="">Seçiniz</option>
 <option>Benzin</option>
 <option>Dizel</option>
+<option>LPG</option>
 <option>Hibrit</option>
 <option>Elektrik</option>
-<option>LPG</option>
 </select>
 </div>
 
-<div class="field">
+<div>
 <label>Vites</label>
 <select id="gear">
-<option>Otomatik</option>
+<option value="">Seçiniz</option>
 <option>Manuel</option>
+<option>Otomatik</option>
 <option>Yarı Otomatik</option>
 </select>
 </div>
 
-<div class="field">
+<div>
 <label>Paket / Donanım</label>
-<input id="package" placeholder="Örn: AMG">
+<input id="trim" placeholder="Örn: Excellence">
 </div>
 
-<div class="field">
-<label>İl</label>
+<div>
+<label>Şehir</label>
 <input id="city" placeholder="Örn: Erzurum">
 </div>
 
 </div>
-
-<div class="actions">
-
-<button class="primary" onclick="saveVehicle()">
-💾 Aracı Kaydet
-</button>
-
-<button class="secondary" onclick="clearForm()">
-🧹 Temizle
-</button>
-
 </div>
 
-</section>
+<!-- PARÇALAR -->
+<div class="card">
+<h2>🔧 Kaporta / Parça Durumu</h2>
 
+<div id="parts" class="grid"></div>
 
-<!-- BOYA DEĞİŞEN -->
-
-<section class="panel">
-
-<div class="panel-title">
-<h2>🛠️ Ekspertiz / Kaporta Durumu</h2>
-<span class="badge">BOYA - DEĞİŞEN</span>
+<div class="buttons">
+<button class="gold" onclick="allOriginal()">Tümünü Orijinal Yap</button>
+<button class="dark" onclick="allCheck()">Tümünü Kontrol Edilecek Yap</button>
+</div>
 </div>
 
-<div class="parts" id="parts">
-
-</div>
-
-<div class="actions">
-
-<button class="secondary" onclick="setAllParts('Orijinal')">
-Tümünü Orijinal Yap
-</button>
-
-<button class="secondary" onclick="resetParts()">
-Sıfırla
-</button>
-
-</div>
-
-</section>
-
-
-<!-- HASAR -->
-
-<section class="panel">
-
-<div class="panel-title">
-<h2>📋 Hasar & Ekspertiz</h2>
-<span class="badge">KONTROL</span>
-</div>
+<!-- EKSPERTİZ -->
+<div class="card">
+<h2>📋 Ekspertiz ve Hasar Bilgileri</h2>
 
 <div class="grid">
 
-<div class="field">
-<label>Tramer / Hasar Kaydı</label>
-<input id="tramer" type="number" placeholder="Örn: 25000">
+<div>
+<label>Tramer / Hasar</label>
+<input id="tramer" placeholder="Örn: 25.000 TL">
 </div>
 
-<div class="field">
-<label>Şase</label>
+<div>
+<label>Şasi</label>
 <select id="chassis">
+<option>Belirtilmedi</option>
 <option>Temiz</option>
 <option>İşlem Var</option>
 <option>Kontrol Edilecek</option>
 </select>
 </div>
 
-<div class="field">
+<div>
 <label>Podye</label>
 <select id="podye">
+<option>Belirtilmedi</option>
 <option>Temiz</option>
 <option>İşlem Var</option>
 <option>Kontrol Edilecek</option>
 </select>
 </div>
 
-<div class="field">
+<div>
 <label>Motor / Mekanik</label>
 <select id="engine">
+<option>Belirtilmedi</option>
 <option>Temiz</option>
+<option>Masrafsız</option>
 <option>Masraf Var</option>
 <option>Kontrol Edilecek</option>
 </select>
@@ -576,146 +293,113 @@ Sıfırla
 
 <br>
 
-<div class="field">
 <label>Ekspertiz Notları</label>
-<textarea id="expertise" placeholder="Ekspertiz raporundan önemli bilgileri buraya yaz..."></textarea>
+<textarea id="expertise" placeholder="Ekspertizden aldığın diğer bilgileri buraya yaz..."></textarea>
+
 </div>
 
-</section>
-
-
-<!-- MALİYETLER -->
-
-<section class="panel">
-
-<div class="panel-title">
+<!-- MALİYET -->
+<div class="card">
 <h2>💰 Araç Maliyetleri</h2>
-<span class="badge">MALİYET</span>
-</div>
 
-<div class="cost-grid">
+<div class="grid">
 
-<div class="cost-box">
-<label>Araç Alış Fiyatı</label>
-<input id="buyPrice" type="number" placeholder="0">
-</div>
-
-<div class="cost-box">
-<label>Kaporta / Boya Masrafı</label>
-<input id="bodyCost" type="number" placeholder="0">
-</div>
-
-<div class="cost-box">
-<label>Mekanik Masraf</label>
-<input id="mechanicCost" type="number" placeholder="0">
-</div>
-
-<div class="cost-box">
-<label>Lastik / Jant Masrafı</label>
-<input id="tireCost" type="number" placeholder="0">
-</div>
-
-<div class="cost-box">
-<label>Ekspertiz / Servis</label>
-<input id="serviceCost" type="number" placeholder="0">
-</div>
-
-<div class="cost-box">
-<label>Diğer Maliyetler</label>
-<input id="otherCost" type="number" placeholder="0">
-</div>
-
-</div>
-
-<div class="total-box">
 <div>
-<div style="font-size:12px;color:#999">TOPLAM MALİYET</div>
-<strong id="totalCost">0 TL</strong>
-</div>
-<button class="primary" onclick="calculateCost()">
-Hesapla
-</button>
+<label>Alış Fiyatı</label>
+<input id="purchase" type="number" placeholder="0" oninput="calculate()">
 </div>
 
-</section>
+<div>
+<label>Kaporta / Boya</label>
+<input id="bodyCost" type="number" placeholder="0" oninput="calculate()">
+</div>
 
+<div>
+<label>Mekanik</label>
+<input id="mechanicCost" type="number" placeholder="0" oninput="calculate()">
+</div>
+
+<div>
+<label>Lastik / Jant</label>
+<input id="tireCost" type="number" placeholder="0" oninput="calculate()">
+</div>
+
+<div>
+<label>Bakım / Servis</label>
+<input id="serviceCost" type="number" placeholder="0" oninput="calculate()">
+</div>
+
+<div>
+<label>Diğer Masraflar</label>
+<input id="otherCost" type="number" placeholder="0" oninput="calculate()">
+</div>
+
+</div>
+
+<div class="total">
+Toplam Maliyet: <span id="totalCost">0 TL</span>
+</div>
+
+</div>
 
 <!-- İLAN ARAMA -->
+<div class="card">
+<h2>🔎 İlan Arama</h2>
 
-<section class="panel">
-
-<div class="panel-title">
-<h2>🌐 İlan Sitelerinde Ara</h2>
-<span class="badge">HIZLI ARAMA</span>
-</div>
-
-<p class="info">
-Yukarıdaki araç bilgilerini kullanarak arama oluşturur.
-Butona bastığında ilgili site için arama sayfası açılır.
+<p style="color:#aaa;font-size:13px">
+Araç bilgilerini doldurduktan sonra aşağıdaki butonlarla ilan sitelerinde arama yapabilirsin.
 </p>
 
-<div class="search-buttons">
-
-<button class="search-btn" onclick="searchSite('sahibinden')">
-🟡 SAHİBİNDEN'DE ARA
+<div class="buttons">
+<button class="gold" onclick="searchSite('sahibinden')">
+Sahibinden'de Ara
 </button>
 
-<button class="search-btn" onclick="searchSite('arabam')">
-🟡 ARABAM.COM'DA ARA
+<button class="gold" onclick="searchSite('arabam')">
+Arabam.com'da Ara
 </button>
 
-<button class="search-btn" onclick="searchSite('google')">
-🔎 GOOGLE'DA ARA
+<button class="dark" onclick="searchSite('google')">
+Google'da Ara
 </button>
-
 </div>
-
-</section>
-
+</div>
 
 <!-- NOTLAR -->
-
-<section class="panel">
-
-<div class="panel-title">
-<h2>📝 Araç Notları</h2>
-<span class="badge">ÖZEL NOT</span>
+<div class="card">
+<h2>📝 Genel Notlar</h2>
+<textarea id="notes" placeholder="Araç hakkında kendi notlarını yaz..."></textarea>
 </div>
 
-<textarea id="notes" placeholder="Araç sahibi, pazarlık, yapılacak işler, özel bilgiler vb."></textarea>
+<!-- KAYDET -->
+<div class="card">
+<h2>💾 Araç Kaydı</h2>
 
-</section>
+<div class="buttons">
+<button class="gold" onclick="saveVehicle()">Aracı Kaydet</button>
+<button class="dark" onclick="clearForm()">Formu Temizle</button>
+</div>
 
+<p style="color:#777;font-size:12px">
+Kayıtlar bu cihazın tarayıcısında saklanır.
+</p>
+</div>
 
-<!-- KAYITLI ARAÇLAR -->
-
-<section class="panel">
-
-<div class="panel-title">
+<!-- KAYITLAR -->
+<div class="card">
 <h2>📁 Kayıtlı Araçlar</h2>
-<span class="badge" id="vehicleCount">0 ARAÇ</span>
-</div>
-
-<div class="saved-list" id="savedList">
-
-<div class="info">
-Henüz kayıtlı araç bulunmuyor.
+<div id="vehicleList"></div>
 </div>
 
 </div>
 
-</section>
-
-</main>
-
-<footer class="footer">
-⚡ YILDIRIM OTO GALERİ — Araç Değerlendirme Sistemi
+<footer>
+⚡ YILDIRIM OTO GALERİ
 </footer>
-
 
 <script>
 
-const PARTS = [
+const partNames=[
 "Kaput",
 "Sağ Ön Çamurluk",
 "Sol Ön Çamurluk",
@@ -731,40 +415,25 @@ const PARTS = [
 "Arka Tampon"
 ];
 
-let vehicles =
-JSON.parse(localStorage.getItem("yildirim_vehicles") || "[]");
-
-let editingId = null;
-
-
-/* PARÇA LİSTESİ */
+let editId=null;
 
 function createParts(){
 
-const box = document.getElementById("parts");
+const box=document.getElementById("parts");
 
-box.innerHTML = PARTS.map((part,index)=>`
+box.innerHTML=partNames.map((name,index)=>`
 
 <div class="part">
+<strong>${name}</strong>
 
-<div class="part-title">
-${part}
-</div>
-
-<select id="part_${index}" onchange="updatePartStatus(${index})">
-
+<select id="part_${index}">
 <option>Orijinal</option>
 <option>Boyalı</option>
 <option>Lokal Boyalı</option>
 <option>Değişen</option>
 <option>İşlemli</option>
 <option>Kontrol Edilecek</option>
-
 </select>
-
-<div class="status" id="status_${index}">
-Orijinal
-</div>
 
 </div>
 
@@ -772,423 +441,82 @@ Orijinal
 
 }
 
-function updatePartStatus(index){
+function allOriginal(){
 
-const value =
-document.getElementById("part_"+index).value;
-
-document.getElementById("status_"+index).textContent =
-value;
-
-}
-
-function setAllParts(value){
-
-PARTS.forEach((p,index)=>{
-
-document.getElementById("part_"+index).value=value;
-updatePartStatus(index);
-
+partNames.forEach((x,i)=>{
+document.getElementById("part_"+i).value="Orijinal";
 });
 
 }
 
-function resetParts(){
+function allCheck(){
 
-setAllParts("Orijinal");
-
-}
-
-
-/* PARA */
-
-function money(value){
-
-value=Number(value)||0;
-
-return value.toLocaleString("tr-TR")+" TL";
-
-}
-
-
-/* MALİYET */
-
-function calculateCost(){
-
-const fields=[
-"buyPrice",
-"bodyCost",
-"mechanicCost",
-"tireCost",
-"serviceCost",
-"otherCost"
-];
-
-let total=0;
-
-fields.forEach(id=>{
-total+=Number(document.getElementById(id).value)||0;
+partNames.forEach((x,i)=>{
+document.getElementById("part_"+i).value="Kontrol Edilecek";
 });
 
-document.getElementById("totalCost").textContent =
-money(total);
+}
+
+function val(id){
+
+return document.getElementById(id).value;
+
+}
+
+function num(id){
+
+return Number(document.getElementById(id).value)||0;
+
+}
+
+function calculate(){
+
+const total=
+num("purchase")+
+num("bodyCost")+
+num("mechanicCost")+
+num("tireCost")+
+num("serviceCost")+
+num("otherCost");
+
+document.getElementById("totalCost").textContent=
+total.toLocaleString("tr-TR")+" TL";
 
 return total;
 
 }
 
-
-/* VERİ TOPLAMA */
-
-function getFormData(){
-
-let parts={};
-
-PARTS.forEach((part,index)=>{
-
-parts[part]=
-document.getElementById("part_"+index).value;
-
-});
-
-return {
-
-id:editingId || Date.now(),
-
-brand:document.getElementById("brand").value.trim(),
-
-model:document.getElementById("model").value.trim(),
-
-year:document.getElementById("year").value,
-
-km:document.getElementById("km").value,
-
-fuel:document.getElementById("fuel").value,
-
-gear:document.getElementById("gear").value,
-
-package:document.getElementById("package").value.trim(),
-
-city:document.getElementById("city").value.trim(),
-
-parts:parts,
-
-tramer:document.getElementById("tramer").value,
-
-chassis:document.getElementById("chassis").value,
-
-podye:document.getElementById("podye").value,
-
-engine:document.getElementById("engine").value,
-
-expertise:document.getElementById("expertise").value.trim(),
-
-buyPrice:document.getElementById("buyPrice").value,
-
-bodyCost:document.getElementById("bodyCost").value,
-
-mechanicCost:document.getElementById("mechanicCost").value,
-
-tireCost:document.getElementById("tireCost").value,
-
-serviceCost:document.getElementById("serviceCost").value,
-
-otherCost:document.getElementById("otherCost").value,
-
-totalCost:calculateCost(),
-
-notes:document.getElementById("notes").value.trim(),
-
-createdAt:new Date().toLocaleString("tr-TR")
-
-};
-
-}
-
-
-/* KAYDET */
-
-function saveVehicle(){
-
-const data=getFormData();
-
-if(!data.brand || !data.model){
-
-alert("Marka ve model bilgisi gerekli.");
-
-return;
-
-}
-
-if(editingId){
-
-const index=vehicles.findIndex(v=>v.id===editingId);
-
-if(index!==-1){
-
-vehicles[index]=data;
-
-}
-
-editingId=null;
-
-}else{
-
-vehicles.unshift(data);
-
-}
-
-localStorage.setItem(
-"yildirim_vehicles",
-JSON.stringify(vehicles)
-);
-
-renderVehicles();
-
-alert("Araç başarıyla kaydedildi.");
-
-clearForm();
-
-}
-
-
-/* ARAÇLARI GÖSTER */
-
-function renderVehicles(){
-
-const list=document.getElementById("savedList");
-
-document.getElementById("vehicleCount").textContent =
-vehicles.length+" ARAÇ";
-
-if(vehicles.length===0){
-
-list.innerHTML=
-`<div class="info">Henüz kayıtlı araç bulunmuyor.</div>`;
-
-return;
-
-}
-
-list.innerHTML=vehicles.map(v=>`
-
-<div class="vehicle-card">
-
-<h3>
-${escapeHTML(v.brand)} ${escapeHTML(v.model)}
-</h3>
-
-<p>
-📅 ${v.year || "-"} &nbsp; | &nbsp;
-🚗 ${v.km ? Number(v.km).toLocaleString("tr-TR") : "-"} KM
-</p>
-
-<p>
-${escapeHTML(v.fuel || "-")} /
-${escapeHTML(v.gear || "-")}
-</p>
-
-<p>
-📍 ${escapeHTML(v.city || "Türkiye")}
-</p>
-
-<div class="price">
-${money(v.buyPrice)}
-</div>
-
-<p>
-Toplam maliyet:
-<strong style="color:#fff">
-${money(v.totalCost)}
-</strong>
-</p>
-
-<div class="card-actions">
-
-<button class="secondary"
-onclick="editVehicle(${v.id})">
-Düzenle
-</button>
-
-<button class="green"
-onclick="openSearchForVehicle(${v.id})">
-İlan Ara
-</button>
-
-<button class="red"
-onclick="deleteVehicle(${v.id})">
-Sil
-</button>
-
-</div>
-
-</div>
-
-`).join("");
-
-}
-
-
-/* DÜZENLE */
-
-function editVehicle(id){
-
-const v=vehicles.find(x=>x.id===id);
-
-if(!v)return;
-
-editingId=id;
-
-document.getElementById("brand").value=v.brand||"";
-document.getElementById("model").value=v.model||"";
-document.getElementById("year").value=v.year||"";
-document.getElementById("km").value=v.km||"";
-document.getElementById("fuel").value=v.fuel||"Benzin";
-document.getElementById("gear").value=v.gear||"Otomatik";
-document.getElementById("package").value=v.package||"";
-document.getElementById("city").value=v.city||"";
-
-document.getElementById("tramer").value=v.tramer||"";
-document.getElementById("chassis").value=v.chassis||"Temiz";
-document.getElementById("podye").value=v.podye||"Temiz";
-document.getElementById("engine").value=v.engine||"Temiz";
-
-document.getElementById("expertise").value=v.expertise||"";
-
-document.getElementById("buyPrice").value=v.buyPrice||"";
-document.getElementById("bodyCost").value=v.bodyCost||"";
-document.getElementById("mechanicCost").value=v.mechanicCost||"";
-document.getElementById("tireCost").value=v.tireCost||"";
-document.getElementById("serviceCost").value=v.serviceCost||"";
-document.getElementById("otherCost").value=v.otherCost||"";
-
-document.getElementById("notes").value=v.notes||"";
-
-PARTS.forEach((part,index)=>{
-
-document.getElementById("part_"+index).value =
-(v.parts && v.parts[part]) || "Orijinal";
-
-updatePartStatus(index);
-
-});
-
-calculateCost();
-
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-
-}
-
-
-/* SİL */
-
-function deleteVehicle(id){
-
-if(!confirm("Bu araç kaydı silinsin mi?")) return;
-
-vehicles=vehicles.filter(v=>v.id!==id);
-
-localStorage.setItem(
-"yildirim_vehicles",
-JSON.stringify(vehicles)
-);
-
-renderVehicles();
-
-}
-
-
-/* FORM TEMİZLE */
-
-function clearForm(){
-
-editingId=null;
-
-const ids=[
-"brand",
-"model",
-"year",
-"km",
-"package",
-"city",
-"tramer",
-"expertise",
-"buyPrice",
-"bodyCost",
-"mechanicCost",
-"tireCost",
-"serviceCost",
-"otherCost",
-"notes"
-];
-
-ids.forEach(id=>{
-document.getElementById(id).value="";
-});
-
-document.getElementById("fuel").value="Benzin";
-document.getElementById("gear").value="Otomatik";
-document.getElementById("chassis").value="Temiz";
-document.getElementById("podye").value="Temiz";
-document.getElementById("engine").value="Temiz";
-
-resetParts();
-
-calculateCost();
-
-}
-
-
-/* ARAMA SORGUSU */
-
-function getSearchQuery(){
-
-const brand=
-document.getElementById("brand").value.trim();
-
-const model=
-document.getElementById("model").value.trim();
-
-const year=
-document.getElementById("year").value.trim();
-
-const km=
-document.getElementById("km").value.trim();
-
-const fuel=
-document.getElementById("fuel").value;
-
-const gear=
-document.getElementById("gear").value;
-
-const pack=
-document.getElementById("package").value.trim();
+function vehicleQuery(){
+
+const brand=val("brand");
+const model=val("model");
+const year=val("year");
+const km=val("km");
+const fuel=val("fuel");
+const gear=val("gear");
+const trim=val("trim");
+const city=val("city");
 
 return [
 brand,
 model,
 year,
-pack,
+km ? km+" km":"",
 fuel,
 gear,
-km ? km+" km" : ""
+trim,
+city
 ].filter(Boolean).join(" ");
 
 }
 
-
-/* SİTELERDE ARA */
-
 function searchSite(site){
 
-const query=getSearchQuery();
+const query=vehicleQuery();
 
 if(!query){
 
-alert("Önce marka ve model bilgisi gir.");
+alert("Önce araç bilgilerini gir.");
 
 return;
 
@@ -1201,8 +529,7 @@ if(site==="sahibinden"){
 url=
 "https://www.google.com/search?q="+
 encodeURIComponent(
-"site:sahibinden.com/ilan/vasita "+
-query
+"site:sahibinden.com/ilan/vasita "+query
 );
 
 }
@@ -1212,8 +539,7 @@ if(site==="arabam"){
 url=
 "https://www.google.com/search?q="+
 encodeURIComponent(
-"site:arabam.com "+
-query
+"site:arabam.com "+query
 );
 
 }
@@ -1232,12 +558,236 @@ window.open(url,"_blank");
 
 }
 
+function getFormData(){
 
-/* KAYITLI ARAÇTAN ARAMA */
+const parts={};
 
-function openSearchForVehicle(id){
+partNames.forEach((name,i)=>{
 
-const v=vehicles.find(x=>x.id===id);
+parts[name]=
+document.getElementById("part_"+i).value;
+
+});
+
+return{
+
+id:editId || Date.now(),
+
+brand:val("brand"),
+model:val("model"),
+year:val("year"),
+km:val("km"),
+fuel:val("fuel"),
+gear:val("gear"),
+trim:val("trim"),
+city:val("city"),
+
+parts:parts,
+
+tramer:val("tramer"),
+chassis:val("chassis"),
+podye:val("podye"),
+engine:val("engine"),
+expertise:val("expertise"),
+
+purchase:num("purchase"),
+bodyCost:num("bodyCost"),
+mechanicCost:num("mechanicCost"),
+tireCost:num("tireCost"),
+serviceCost:num("serviceCost"),
+otherCost:num("otherCost"),
+
+totalCost:calculate(),
+
+notes:val("notes"),
+
+date:new Date().toLocaleString("tr-TR")
+
+};
+
+}
+
+function saveVehicle(){
+
+if(!val("brand") && !val("model")){
+
+alert("En azından marka veya model gir.");
+
+return;
+
+}
+
+const data=getFormData();
+
+let list=
+JSON.parse(localStorage.getItem("yildirimVehicles")||"[]");
+
+if(editId){
+
+const index=list.findIndex(x=>x.id===editId);
+
+if(index!==-1) list[index]=data;
+
+editId=null;
+
+}else{
+
+list.unshift(data);
+
+}
+
+localStorage.setItem(
+"yildirimVehicles",
+JSON.stringify(list)
+);
+
+renderVehicles();
+
+alert("Araç kaydedildi.");
+
+}
+
+function renderVehicles(){
+
+const box=document.getElementById("vehicleList");
+
+const list=
+JSON.parse(localStorage.getItem("yildirimVehicles")||"[]");
+
+if(!list.length){
+
+box.innerHTML=
+'<div class="empty">Henüz kayıtlı araç yok.</div>';
+
+return;
+
+}
+
+box.innerHTML=list.map(v=>`
+
+<div class="vehicle">
+
+<div class="vehicle-title">
+${escapeHTML(v.brand)} ${escapeHTML(v.model)}
+</div>
+
+<div class="info">
+
+${v.year ? "Yıl: "+escapeHTML(v.year)+"<br>":""}
+
+${v.km ? "Kilometre: "+Number(v.km).toLocaleString("tr-TR")+" km<br>":""}
+
+${v.fuel ? "Yakıt: "+escapeHTML(v.fuel)+"<br>":""}
+
+${v.gear ? "Vites: "+escapeHTML(v.gear)+"<br>":""}
+
+${v.trim ? "Paket: "+escapeHTML(v.trim)+"<br>":""}
+
+${v.city ? "Şehir: "+escapeHTML(v.city)+"<br>":""}
+
+<strong style="color:#d4af37">
+Toplam Maliyet:
+${Number(v.totalCost||0).toLocaleString("tr-TR")} TL
+</strong>
+
+</div>
+
+<div>
+${Object.entries(v.parts||{}).map(
+([name,status])=>
+`<span class="badge">${escapeHTML(name)}: ${escapeHTML(status)}</span>`
+).join("")
+}
+</div>
+
+<div class="buttons">
+
+<button class="gold" onclick="editVehicle(${v.id})">
+Düzenle
+</button>
+
+<button class="dark" onclick="searchSaved(${v.id})">
+İlan Ara
+</button>
+
+<button class="red" onclick="deleteVehicle(${v.id})">
+Sil
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+function editVehicle(id){
+
+const list=
+JSON.parse(localStorage.getItem("yildirimVehicles")||"[]");
+
+const v=list.find(x=>x.id===id);
+
+if(!v)return;
+
+editId=id;
+
+const fields=[
+"brand",
+"model",
+"year",
+"km",
+"fuel",
+"gear",
+"trim",
+"city",
+"tramer",
+"chassis",
+"podye",
+"engine",
+"expertise",
+"purchase",
+"bodyCost",
+"mechanicCost",
+"tireCost",
+"serviceCost",
+"otherCost",
+"notes"
+];
+
+fields.forEach(id=>{
+
+if(document.getElementById(id)){
+document.getElementById(id).value=
+v[id] ?? "";
+
+}
+
+});
+
+partNames.forEach((name,i)=>{
+
+document.getElementById("part_"+i).value=
+(v.parts && v.parts[name]) || "Orijinal";
+
+});
+
+calculate();
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+function searchSaved(id){
+
+const list=
+JSON.parse(localStorage.getItem("yildirimVehicles")||"[]");
+
+const v=list.find(x=>x.id===id);
 
 if(!v)return;
 
@@ -1245,65 +795,64 @@ const query=[
 v.brand,
 v.model,
 v.year,
-v.package,
+v.km ? v.km+" km":"",
 v.fuel,
 v.gear,
-v.km ? v.km+" km" : ""
+v.trim,
+v.city
 ].filter(Boolean).join(" ");
 
-const choice=prompt(
-"Arama sitesi seç:\n\n1 = Sahibinden\n2 = Arabam.com\n3 = Google",
-"1"
-);
-
-if(!choice)return;
-
-let url="";
-
-if(choice==="1"){
-
-url=
+window.open(
 "https://www.google.com/search?q="+
-encodeURIComponent(
-"site:sahibinden.com/ilan/vasita "+query
+encodeURIComponent(query+" araç ilanları Türkiye"),
+"_blank"
 );
 
 }
 
-else if(choice==="2"){
+function deleteVehicle(id){
 
-url=
-"https://www.google.com/search?q="+
-encodeURIComponent(
-"site:arabam.com "+query
-);
-
-}
-
-else if(choice==="3"){
-
-url=
-"https://www.google.com/search?q="+
-encodeURIComponent(
-query+" araç ilanları Türkiye"
-);
-
-}
-
-else{
-
-alert("1, 2 veya 3 yazmalısın.");
+if(!confirm("Bu araç kaydını silmek istediğine emin misin?")){
 
 return;
 
 }
 
-window.open(url,"_blank");
+let list=
+JSON.parse(localStorage.getItem("yildirimVehicles")||"[]");
+
+list=list.filter(x=>x.id!==id);
+
+localStorage.setItem(
+"yildirimVehicles",
+JSON.stringify(list)
+);
+
+renderVehicles();
 
 }
 
+function clearForm(){
 
-/* HTML GÜVENLİK */
+editId=null;
+
+document.querySelectorAll("input,textarea").forEach(el=>{
+
+el.value="";
+
+});
+
+document.querySelectorAll("select").forEach(el=>{
+
+el.selectedIndex=0;
+
+});
+
+allOriginal();
+
+calculate();
+
+}
 
 function escapeHTML(value){
 
@@ -1316,12 +865,9 @@ return String(value ?? "")
 
 }
 
-
-/* BAŞLAT */
-
 createParts();
 renderVehicles();
-calculateCost();
+calculate();
 
 </script>
 
