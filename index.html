@@ -2,166 +2,38 @@
 <html lang="tr">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>YILDIRIM OTO GALERİ</title>
-
 <style>
 *{box-sizing:border-box}
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#080808;
-color:#fff;
-}
-header{
-background:#111;
-border-bottom:2px solid #d4af37;
-padding:20px;
-text-align:center;
-}
-.logo{
-font-size:26px;
-font-weight:bold;
-color:#d4af37;
-letter-spacing:2px;
-}
-.subtitle{
-color:#aaa;
-margin-top:6px;
-font-size:14px;
-}
-.container{
-max-width:1100px;
-margin:auto;
-padding:18px;
-}
-.card{
-background:#121212;
-border:1px solid #333;
-border-radius:14px;
-padding:18px;
-margin-bottom:18px;
-}
-h2{
-color:#d4af37;
-font-size:19px;
-margin-top:0;
-border-bottom:1px solid #333;
-padding-bottom:10px;
-}
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-gap:12px;
-}
-label{
-display:block;
-font-size:13px;
-color:#bbb;
-margin-bottom:5px;
-}
-input,select,textarea{
-width:100%;
-padding:12px;
-border-radius:8px;
-border:1px solid #444;
-background:#1d1d1d;
-color:#fff;
-font-size:14px;
-}
-textarea{
-min-height:90px;
-resize:vertical;
-}
-button{
-border:0;
-border-radius:8px;
-padding:12px 15px;
-font-weight:bold;
-cursor:pointer;
-margin:4px;
-}
-.gold{
-background:#d4af37;
-color:#000;
-}
-.dark{
-background:#292929;
-color:#fff;
-border:1px solid #555;
-}
-.red{
-background:#8d2020;
-color:#fff;
-}
-.green{
-background:#176b3a;
-color:#fff;
-}
-.buttons{
-display:flex;
-flex-wrap:wrap;
-gap:5px;
-margin-top:12px;
-}
-.part{
-background:#1b1b1b;
-border:1px solid #333;
-padding:10px;
-border-radius:9px;
-}
-.part strong{
-display:block;
-margin-bottom:7px;
-color:#ddd;
-}
-.part select{
-padding:9px;
-}
-.total{
-font-size:22px;
-font-weight:bold;
-color:#d4af37;
-margin-top:15px;
-}
-.vehicle{
-background:#191919;
-border:1px solid #383838;
-border-radius:12px;
-padding:15px;
-margin-top:12px;
-}
-.vehicle-title{
-font-size:18px;
-font-weight:bold;
-color:#d4af37;
-}
-.info{
-color:#bbb;
-font-size:13px;
-line-height:1.7;
-margin:8px 0;
-}
-.badge{
-display:inline-block;
-background:#292929;
-border:1px solid #444;
-padding:4px 7px;
-border-radius:5px;
-font-size:11px;
-margin:2px;
-}
-.empty{
-color:#777;
-text-align:center;
-padding:20px;
-}
-footer{
-text-align:center;
-color:#666;
-padding:25px;
-font-size:12px;
-}
+body{margin:0;background:#080808;color:#fff;font-family:Arial,sans-serif}
+header{background:#111;border-bottom:2px solid #d4af37;text-align:center;padding:20px}
+.logo{font-size:25px;font-weight:bold;color:#d4af37;letter-spacing:2px}
+.sub{color:#aaa;font-size:13px;margin-top:6px}
+.container{max-width:1100px;margin:auto;padding:16px}
+.card{background:#121212;border:1px solid #333;border-radius:14px;padding:17px;margin-bottom:16px}
+h2{color:#d4af37;font-size:18px;margin:0 0 14px;border-bottom:1px solid #333;padding-bottom:10px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:11px}
+label{display:block;color:#bbb;font-size:12px;margin-bottom:5px}
+input,select,textarea{width:100%;background:#1d1d1d;color:#fff;border:1px solid #444;border-radius:8px;padding:11px;font-size:14px}
+textarea{min-height:90px}
+button{border:0;border-radius:8px;padding:11px 14px;font-weight:bold;margin:4px;cursor:pointer}
+.gold{background:#d4af37;color:#000}
+.dark{background:#292929;color:#fff;border:1px solid #555}
+.red{background:#8d2020;color:#fff}
+.green{background:#176b3a;color:#fff}
+.buttons{display:flex;flex-wrap:wrap;margin-top:10px}
+.part{background:#191919;border:1px solid #333;border-radius:9px;padding:9px}
+.part strong{display:block;color:#ddd;font-size:13px;margin-bottom:6px}
+.part select{padding:8px}
+.total{font-size:21px;color:#d4af37;font-weight:bold;margin-top:14px}
+.vehicle{background:#191919;border:1px solid #383838;border-radius:12px;padding:14px;margin-top:10px}
+.vehicle-title{color:#d4af37;font-weight:bold;font-size:18px}
+.info{color:#bbb;font-size:13px;line-height:1.7;margin:7px 0}
+.badge{display:inline-block;background:#292929;border:1px solid #444;border-radius:5px;padding:4px 6px;font-size:10px;margin:2px}
+.empty{text-align:center;color:#777;padding:20px}
+.note{font-size:12px;color:#888;line-height:1.6}
+footer{text-align:center;color:#666;padding:25px;font-size:12px}
 </style>
 </head>
 
@@ -169,12 +41,11 @@ font-size:12px;
 
 <header>
 <div class="logo">⚡ YILDIRIM OTO GALERİ</div>
-<div class="subtitle">ARAÇ DEĞERLENDİRME & İLAN ARAMA SİSTEMİ</div>
+<div class="sub">ARAÇ DEĞERLENDİRME & İLAN ARAMA SİSTEMİ</div>
 </header>
 
 <div class="container">
 
-<!-- ARAÇ BİLGİLERİ -->
 <div class="card">
 <h2>🚘 Araç Bilgileri</h2>
 
@@ -191,19 +62,29 @@ font-size:12px;
 </div>
 
 <div>
-<label>Yıl</label>
-<input id="year" type="number" placeholder="2020">
+<label>Minimum Model Yılı</label>
+<input id="minYear" type="number" placeholder="2018">
 </div>
 
 <div>
-<label>Kilometre</label>
-<input id="km" type="number" placeholder="125000">
+<label>Maksimum Model Yılı</label>
+<input id="maxYear" type="number" placeholder="2022">
+</div>
+
+<div>
+<label>Minimum Kilometre</label>
+<input id="minKm" type="number" placeholder="50000">
+</div>
+
+<div>
+<label>Maksimum Kilometre</label>
+<input id="maxKm" type="number" placeholder="150000">
 </div>
 
 <div>
 <label>Yakıt</label>
 <select id="fuel">
-<option value="">Seçiniz</option>
+<option value="">Farketmez</option>
 <option>Benzin</option>
 <option>Dizel</option>
 <option>LPG</option>
@@ -215,7 +96,7 @@ font-size:12px;
 <div>
 <label>Vites</label>
 <select id="gear">
-<option value="">Seçiniz</option>
+<option value="">Farketmez</option>
 <option>Manuel</option>
 <option>Otomatik</option>
 <option>Yarı Otomatik</option>
@@ -229,16 +110,49 @@ font-size:12px;
 
 <div>
 <label>Şehir</label>
-<input id="city" placeholder="Örn: Erzurum">
+<input id="city" placeholder="Örn: İstanbul">
 </div>
 
 </div>
 </div>
 
-<!-- PARÇALAR -->
+<div class="card">
+<h2>💰 İlan Fiyat Filtresi</h2>
+
+<div class="grid">
+
+<div>
+<label>Minimum Fiyat (TL)</label>
+<input id="minPrice" type="number" placeholder="800000">
+</div>
+
+<div>
+<label>Maksimum Fiyat (TL)</label>
+<input id="maxPrice" type="number" placeholder="1200000">
+</div>
+
+</div>
+
+<div class="buttons">
+<button class="gold" onclick="searchSite('sahibinden','normal')">Sahibinden'de Ara</button>
+<button class="gold" onclick="searchSite('arabam','normal')">Arabam.com'da Ara</button>
+<button class="dark" onclick="searchSite('google','normal')">Google'da Ara</button>
+</div>
+
+<div class="buttons">
+<button class="green" onclick="searchSite('sahibinden','low')">En Düşük Fiyatlı Ara</button>
+<button class="green" onclick="searchSite('sahibinden','high')">En Yüksek Fiyatlı Ara</button>
+</div>
+
+<p class="note">
+Not: Aramalar Google üzerinden yapılır. Fiyat/yıl/km aralıkları arama sorgusuna eklenir. 
+“En düşük” ve “en yüksek” seçenekleri Google sonuçlarını fiyat sırasına zorlayamaz; sonuçların sıralaması Google'a aittir.
+</p>
+
+</div>
+
 <div class="card">
 <h2>🔧 Kaporta / Parça Durumu</h2>
-
 <div id="parts" class="grid"></div>
 
 <div class="buttons">
@@ -247,7 +161,6 @@ font-size:12px;
 </div>
 </div>
 
-<!-- EKSPERTİZ -->
 <div class="card">
 <h2>📋 Ekspertiz ve Hasar Bilgileri</h2>
 
@@ -294,13 +207,11 @@ font-size:12px;
 <br>
 
 <label>Ekspertiz Notları</label>
-<textarea id="expertise" placeholder="Ekspertizden aldığın diğer bilgileri buraya yaz..."></textarea>
-
+<textarea id="expertise" placeholder="Ekspertiz bilgilerini yaz..."></textarea>
 </div>
 
-<!-- MALİYET -->
 <div class="card">
-<h2>💰 Araç Maliyetleri</h2>
+<h2>🧾 Araç Masrafları</h2>
 
 <div class="grid">
 
@@ -339,39 +250,13 @@ font-size:12px;
 <div class="total">
 Toplam Maliyet: <span id="totalCost">0 TL</span>
 </div>
-
 </div>
 
-<!-- İLAN ARAMA -->
-<div class="card">
-<h2>🔎 İlan Arama</h2>
-
-<p style="color:#aaa;font-size:13px">
-Araç bilgilerini doldurduktan sonra aşağıdaki butonlarla ilan sitelerinde arama yapabilirsin.
-</p>
-
-<div class="buttons">
-<button class="gold" onclick="searchSite('sahibinden')">
-Sahibinden'de Ara
-</button>
-
-<button class="gold" onclick="searchSite('arabam')">
-Arabam.com'da Ara
-</button>
-
-<button class="dark" onclick="searchSite('google')">
-Google'da Ara
-</button>
-</div>
-</div>
-
-<!-- NOTLAR -->
 <div class="card">
 <h2>📝 Genel Notlar</h2>
 <textarea id="notes" placeholder="Araç hakkında kendi notlarını yaz..."></textarea>
 </div>
 
-<!-- KAYDET -->
 <div class="card">
 <h2>💾 Araç Kaydı</h2>
 
@@ -380,12 +265,9 @@ Google'da Ara
 <button class="dark" onclick="clearForm()">Formu Temizle</button>
 </div>
 
-<p style="color:#777;font-size:12px">
-Kayıtlar bu cihazın tarayıcısında saklanır.
-</p>
+<p class="note">Kayıtlar bu cihazın tarayıcısında saklanır.</p>
 </div>
 
-<!-- KAYITLAR -->
 <div class="card">
 <h2>📁 Kayıtlı Araçlar</h2>
 <div id="vehicleList"></div>
@@ -393,9 +275,7 @@ Kayıtlar bu cihazın tarayıcısında saklanır.
 
 </div>
 
-<footer>
-⚡ YILDIRIM OTO GALERİ
-</footer>
+<footer>⚡ YILDIRIM OTO GALERİ</footer>
 
 <script>
 
@@ -419,14 +299,12 @@ let editId=null;
 
 function createParts(){
 
-const box=document.getElementById("parts");
-
-box.innerHTML=partNames.map((name,index)=>`
+document.getElementById("parts").innerHTML=
+partNames.map((name,i)=>`
 
 <div class="part">
 <strong>${name}</strong>
-
-<select id="part_${index}">
+<select id="part_${i}">
 <option>Orijinal</option>
 <option>Boyalı</option>
 <option>Lokal Boyalı</option>
@@ -434,7 +312,6 @@ box.innerHTML=partNames.map((name,index)=>`
 <option>İşlemli</option>
 <option>Kontrol Edilecek</option>
 </select>
-
 </div>
 
 `).join("");
@@ -459,7 +336,7 @@ document.getElementById("part_"+i).value="Kontrol Edilecek";
 
 function val(id){
 
-return document.getElementById(id).value;
+return document.getElementById(id).value.trim();
 
 }
 
@@ -486,40 +363,66 @@ return total;
 
 }
 
-function vehicleQuery(){
+function makeQuery(){
 
-const brand=val("brand");
-const model=val("model");
-const year=val("year");
-const km=val("km");
-const fuel=val("fuel");
-const gear=val("gear");
-const trim=val("trim");
-const city=val("city");
+let q=[];
 
-return [
-brand,
-model,
-year,
-km ? km+" km":"",
-fuel,
-gear,
-trim,
-city
-].filter(Boolean).join(" ");
+if(val("brand"))q.push(val("brand"));
+if(val("model"))q.push(val("model"));
+
+if(val("minYear")&&val("maxYear")){
+q.push(val("minYear")+"-"+val("maxYear")+" model");
+}else if(val("minYear")){
+q.push(val("minYear")+" model ve üzeri");
+}else if(val("maxYear")){
+q.push(val("maxYear")+" model ve altı");
+}
+
+if(val("minKm")&&val("maxKm")){
+q.push(val("minKm")+"-"+val("maxKm")+" km");
+}else if(val("minKm")){
+q.push(val("minKm")+" km ve üzeri");
+}else if(val("maxKm")){
+q.push(val("maxKm")+" km ve altı");
+}
+
+if(val("fuel"))q.push(val("fuel"));
+if(val("gear"))q.push(val("gear"));
+if(val("trim"))q.push(val("trim"));
+if(val("city"))q.push(val("city"));
+
+if(val("minPrice")&&val("maxPrice")){
+q.push(val("minPrice")+"-"+val("maxPrice")+" TL");
+}else if(val("minPrice")){
+q.push(val("minPrice")+" TL ve üzeri");
+}else if(val("maxPrice")){
+q.push(val("maxPrice")+" TL ve altı");
+}
+
+return q.join(" ");
 
 }
 
-function searchSite(site){
+function searchSite(site,order){
 
-const query=vehicleQuery();
+const query=makeQuery();
 
 if(!query){
 
-alert("Önce araç bilgilerini gir.");
+alert("Önce en az marka veya model gir.");
 
 return;
 
+}
+
+let searchText=query+" araç ilanı";
+
+if(order==="low"){
+searchText+=" en ucuz en düşük fiyat";
+}
+
+if(order==="high"){
+searchText+=" en pahalı en yüksek fiyat";
 }
 
 let url="";
@@ -529,7 +432,7 @@ if(site==="sahibinden"){
 url=
 "https://www.google.com/search?q="+
 encodeURIComponent(
-"site:sahibinden.com/ilan/vasita "+query
+"site:sahibinden.com/ilan/vasita "+searchText
 );
 
 }
@@ -539,7 +442,7 @@ if(site==="arabam"){
 url=
 "https://www.google.com/search?q="+
 encodeURIComponent(
-"site:arabam.com "+query
+"site:arabam.com "+searchText
 );
 
 }
@@ -548,9 +451,7 @@ if(site==="google"){
 
 url=
 "https://www.google.com/search?q="+
-encodeURIComponent(
-query+" araç ilanları Türkiye"
-);
+encodeURIComponent(searchText);
 
 }
 
@@ -563,24 +464,29 @@ function getFormData(){
 const parts={};
 
 partNames.forEach((name,i)=>{
-
-parts[name]=
-document.getElementById("part_"+i).value;
-
+parts[name]=document.getElementById("part_"+i).value;
 });
 
 return{
 
-id:editId || Date.now(),
+id:editId||Date.now(),
 
 brand:val("brand"),
 model:val("model"),
-year:val("year"),
-km:val("km"),
+
+minYear:val("minYear"),
+maxYear:val("maxYear"),
+
+minKm:val("minKm"),
+maxKm:val("maxKm"),
+
 fuel:val("fuel"),
 gear:val("gear"),
 trim:val("trim"),
 city:val("city"),
+
+minPrice:val("minPrice"),
+maxPrice:val("maxPrice"),
 
 parts:parts,
 
@@ -609,9 +515,9 @@ date:new Date().toLocaleString("tr-TR")
 
 function saveVehicle(){
 
-if(!val("brand") && !val("model")){
+if(!val("brand")&&!val("model")){
 
-alert("En azından marka veya model gir.");
+alert("En az marka veya model gir.");
 
 return;
 
@@ -626,7 +532,7 @@ if(editId){
 
 const index=list.findIndex(x=>x.id===editId);
 
-if(index!==-1) list[index]=data;
+if(index!==-1)list[index]=data;
 
 editId=null;
 
@@ -656,8 +562,7 @@ JSON.parse(localStorage.getItem("yildirimVehicles")||"[]");
 
 if(!list.length){
 
-box.innerHTML=
-'<div class="empty">Henüz kayıtlı araç yok.</div>';
+box.innerHTML='<div class="empty">Henüz kayıtlı araç yok.</div>';
 
 return;
 
@@ -673,17 +578,27 @@ ${escapeHTML(v.brand)} ${escapeHTML(v.model)}
 
 <div class="info">
 
-${v.year ? "Yıl: "+escapeHTML(v.year)+"<br>":""}
+${v.minYear||v.maxYear?
+"Yıl: "+escapeHTML(v.minYear||"")+
+" - "+escapeHTML(v.maxYear||"")+"<br>":""}
 
-${v.km ? "Kilometre: "+Number(v.km).toLocaleString("tr-TR")+" km<br>":""}
+${v.minKm||v.maxKm?
+"KM: "+escapeHTML(v.minKm||"0")+
+" - "+escapeHTML(v.maxKm||"")+"<br>":""}
 
-${v.fuel ? "Yakıt: "+escapeHTML(v.fuel)+"<br>":""}
+${v.fuel?"Yakıt: "+escapeHTML(v.fuel)+"<br>":""}
 
-${v.gear ? "Vites: "+escapeHTML(v.gear)+"<br>":""}
+${v.gear?"Vites: "+escapeHTML(v.gear)+"<br>":""}
 
-${v.trim ? "Paket: "+escapeHTML(v.trim)+"<br>":""}
+${v.trim?"Paket: "+escapeHTML(v.trim)+"<br>":""}
 
-${v.city ? "Şehir: "+escapeHTML(v.city)+"<br>":""}
+${v.city?"Şehir: "+escapeHTML(v.city)+"<br>":""}
+
+${v.minPrice||v.maxPrice?
+"İlan Fiyatı: "+
+escapeHTML(v.minPrice||"0")+
+" - "+
+escapeHTML(v.maxPrice||"0")+" TL<br>":""}
 
 <strong style="color:#d4af37">
 Toplam Maliyet:
@@ -695,9 +610,10 @@ ${Number(v.totalCost||0).toLocaleString("tr-TR")} TL
 <div>
 ${Object.entries(v.parts||{}).map(
 ([name,status])=>
-`<span class="badge">${escapeHTML(name)}: ${escapeHTML(status)}</span>`
-).join("")
-}
+`<span class="badge">
+${escapeHTML(name)}: ${escapeHTML(status)}
+</span>`
+).join("")}
 </div>
 
 <div class="buttons">
@@ -734,14 +650,19 @@ if(!v)return;
 editId=id;
 
 const fields=[
+
 "brand",
 "model",
-"year",
-"km",
+"minYear",
+"maxYear",
+"minKm",
+"maxKm",
 "fuel",
 "gear",
 "trim",
 "city",
+"minPrice",
+"maxPrice",
 "tramer",
 "chassis",
 "podye",
@@ -754,22 +675,21 @@ const fields=[
 "serviceCost",
 "otherCost",
 "notes"
+
 ];
 
 fields.forEach(id=>{
 
-if(document.getElementById(id)){
-document.getElementById(id).value=
-v[id] ?? "";
+const el=document.getElementById(id);
 
-}
+if(el)el.value=v[id]??"";
 
 });
 
 partNames.forEach((name,i)=>{
 
 document.getElementById("part_"+i).value=
-(v.parts && v.parts[name]) || "Orijinal";
+(v.parts&&v.parts[name])||"Orijinal";
 
 });
 
@@ -791,20 +711,28 @@ const v=list.find(x=>x.id===id);
 
 if(!v)return;
 
-const query=[
-v.brand,
-v.model,
-v.year,
-v.km ? v.km+" km":"",
-v.fuel,
-v.gear,
-v.trim,
-v.city
-].filter(Boolean).join(" ");
+let q=[];
+
+if(v.brand)q.push(v.brand);
+if(v.model)q.push(v.model);
+
+if(v.minYear||v.maxYear)
+q.push((v.minYear||"")+"-"+(v.maxYear||"")+" model");
+
+if(v.minKm||v.maxKm)
+q.push((v.minKm||"")+"-"+(v.maxKm||"")+" km");
+
+if(v.fuel)q.push(v.fuel);
+if(v.gear)q.push(v.gear);
+if(v.trim)q.push(v.trim);
+if(v.city)q.push(v.city);
+
+if(v.minPrice||v.maxPrice)
+q.push((v.minPrice||"")+"-"+(v.maxPrice||"")+" TL");
 
 window.open(
 "https://www.google.com/search?q="+
-encodeURIComponent(query+" araç ilanları Türkiye"),
+encodeURIComponent(q.join(" ")+" araç ilanları"),
 "_blank"
 );
 
@@ -812,11 +740,8 @@ encodeURIComponent(query+" araç ilanları Türkiye"),
 
 function deleteVehicle(id){
 
-if(!confirm("Bu araç kaydını silmek istediğine emin misin?")){
-
+if(!confirm("Bu araç kaydını silmek istediğine emin misin?"))
 return;
-
-}
 
 let list=
 JSON.parse(localStorage.getItem("yildirimVehicles")||"[]");
@@ -836,17 +761,11 @@ function clearForm(){
 
 editId=null;
 
-document.querySelectorAll("input,textarea").forEach(el=>{
+document.querySelectorAll("input,textarea")
+.forEach(el=>el.value="");
 
-el.value="";
-
-});
-
-document.querySelectorAll("select").forEach(el=>{
-
-el.selectedIndex=0;
-
-});
+document.querySelectorAll("select")
+.forEach(el=>el.selectedIndex=0);
 
 allOriginal();
 
@@ -856,7 +775,7 @@ calculate();
 
 function escapeHTML(value){
 
-return String(value ?? "")
+return String(value??"")
 .replace(/&/g,"&amp;")
 .replace(/</g,"&lt;")
 .replace(/>/g,"&gt;")
